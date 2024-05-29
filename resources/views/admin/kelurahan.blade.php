@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pegawai</title>
+  <title>Kelurahan</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Daftar Kelurahan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -60,17 +60,24 @@
           </div>
         </div>
         <div class="card-body">
-          <table class="table table-bordred">
+          <a href="{{ url('admin/kelurahan/create') }}" class="btn btn-primary">+ Tambah Kelurahan</a>
+          <table class="table table-bordered">
             <tr class="table-success">
                 <th>id</th>
                 <th>Nama Kelurahan</th>
                 <th>Nama Kecamatan</th>
+                <th>Aksi</th>
             </tr>
             @foreach ($list_kelurahan as $kelurahan)
             <tr>
               <td>{{ $kelurahan->id }}</td>
               <td>{{ $kelurahan->nama }}</td>
               <td>{{ $kelurahan->nama_kecamatan }}</td>
+              <td>
+              <a href="{{ url('admin/kelurahan/show', $kelurahan->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
+                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
+                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
+              </td>
             </tr>
             @endforeach
           </table>

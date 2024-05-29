@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3</title>
+  <title>Form Kelurahan</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Daftar Kelurahan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -60,7 +60,30 @@
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+        <form class="forms-sample" action="{{ url('admin/kelurahan/store') }}" method="POST">
+            @csrf
+          <div class="form-group row">
+              <label for="nama" class="col-sm-4 col-form-label">Nama Kelurahan</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="nama" name="nama"
+                      placeholder="Masukkan Nama Kelurahan">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="nama_kecamatan" class="col-sm-4 col-form-label">Nama Kecamatan</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="nama_kecamatan" name="nama_kecamatan"
+                      placeholder="Masukkan Nama Kecamatan">
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="reset" class="btn btn-warning">Reset</button>
+              </div>
+          </div>
+        </form>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
