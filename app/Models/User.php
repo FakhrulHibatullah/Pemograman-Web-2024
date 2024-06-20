@@ -11,6 +11,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+<<<<<<< HEAD
+=======
+    const ROLE_ADMIN = 'administrator';
+    const ROLE_MeMBER = 'member';
+
+>>>>>>> 191058c (Pratikum Terakhir)
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +26,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
+=======
+        'role',
+>>>>>>> 191058c (Pratikum Terakhir)
     ];
 
     /**

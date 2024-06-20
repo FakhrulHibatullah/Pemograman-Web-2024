@@ -60,6 +60,7 @@
           </div>
         </div>
         <div class="card-body">
+<<<<<<< HEAD
           <table class="table table-bordered">
             <tr class="table-success">
                 <th>id</th>
@@ -86,6 +87,52 @@
               <td>{{ $pasien->nama_kecamatan }}</td>
             </tr>
             @endforeach 
+=======
+          @if (session('pesan'))
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ session('pesan') }}</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @endif
+          <a href="{{ url('admin/pasien/create') }}" class="btn btn-primary">+ Tambah Pasien</a>
+          <table class="table table-bordered">
+            <tr class="table-success">
+            <th>id</th>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Alamat</th>
+                <th>Nama Kecamatan</th>
+                <th>Aksi</th>
+            </tr>
+            @foreach ($list_pasien as $pasien)
+            <tr>
+            <td>{{ $pasien->id}}</td>
+                <td>{{ $pasien->kode}}</td>
+                <td>{{ $pasien->nama}}</td>
+                <td>{{ $pasien->tmp_lahir}}</td>
+                <td>{{ $pasien->tgl_lahir}}</td>
+                <td>{{ $pasien->gender}}</td>
+                <td>{{ $pasien->email}}</td>
+                <td>{{ $pasien->alamat}}</td>
+                <td>{{ $pasien->nama_kecamatan}}</td>
+              <td>
+                <a href="{{ url('admin/pasien/show', $pasien->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a>
+                <a href="{{ url('admin/pasien/edit', $pasien->id) }}" class="text-warning"><i class="far fa-edit"></i> Edit</a> 
+                <form action="{{ url('admin/pasien/destroy', $pasien->id) }}" method="post" class="d-inline">
+                 @csrf
+                 @method('delete')
+                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="far fa-trash-alt"></i>Hapus</button>
+              </form>
+              </td>
+            </tr>
+            @endforeach
+>>>>>>> 191058c (Pratikum Terakhir)
           </table>
         </div>
         <!-- /.card-body -->
@@ -121,4 +168,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('assets')}}/js/demo.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 191058c (Pratikum Terakhir)

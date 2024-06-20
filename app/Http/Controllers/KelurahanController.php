@@ -35,7 +35,11 @@ class KelurahanController extends Controller
             'nama_kecamatan' => 'required | string',
         ]);
         Kelurahan::create($validated);
+<<<<<<< HEAD
         return redirect('admin/kelurahan');
+=======
+        return redirect('admin/kelurahan')->with('pesan', 'Data berhasil di tambahkan');
+>>>>>>> 191058c (Pratikum Terakhir)
     }
 
     /**
@@ -52,7 +56,12 @@ class KelurahanController extends Controller
      */
     public function edit(string $id)
     {
+<<<<<<< HEAD
         //
+=======
+        $kelurahan = Kelurahan :: find ($id);
+        return view('admin.kelurahan.edit', compact('kelurahan'));
+>>>>>>> 191058c (Pratikum Terakhir)
     }
 
     /**
@@ -60,7 +69,19 @@ class KelurahanController extends Controller
      */
     public function update(Request $request, string $id)
     {
+<<<<<<< HEAD
         //
+=======
+        // validasi form input
+        $validated = $request->validate([
+            'nama' => 'required | string',
+            'nama_kecamatan' => 'required | string',
+        ]); 
+
+        $kelurahan = Kelurahan ::find($id);
+        $kelurahan->update($validated);
+        return redirect('admin/kelurahan')->with('pesan', 'Data berhasil di edit');
+>>>>>>> 191058c (Pratikum Terakhir)
     }
 
     /**
@@ -68,6 +89,12 @@ class KelurahanController extends Controller
      */
     public function destroy(string $id)
     {
+<<<<<<< HEAD
         //
+=======
+        $kelurahan = Kelurahan::find($id);
+        $kelurahan->delete();
+        return redirect('admin/kelurahan')->with('pesan', 'Data berhasil di hapus');
+>>>>>>> 191058c (Pratikum Terakhir)
     }
 }
